@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "5d5c8e57-ad09-4b47-ba18-7e9942949e66",
+		"name": "App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22886890",
+		"_collection_link": "https://dark-resonance-297681.postman.co/workspace/4243a99c-0ea5-48aa-b3c1-80eedb821e6a/collection/22886890-5d5c8e57-ad09-4b47-ba18-7e9942949e66?action=share&creator=22886890&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "contact",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/contact",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/contact/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Hein Htet Zan",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "9250152018",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "95",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/contact",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/contact/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "ko htet",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "9789789789",
+									"type": "text"
+								},
+								{
+									"key": "country_code",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partial_update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "country_code",
+									"value": "65",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "phone_number",
+									"value": "054434363",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/contact/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contact",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "DRLXAVG4hOfVSCngGiBZlF1xaU8gDXQ26aGAXJwt",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "zaw zaw",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zz@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "asdffdsa",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "asdffdsa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "zz@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "asdffdsa",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

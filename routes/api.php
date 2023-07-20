@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ApiAuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Middleware\ApiTokenCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource('contact',ContactController::class);
+
+Route::post("register",[ApiAuthController::class,'register']);
+Route::post("login",[ApiAuthController::class,'login']);
+// Route::post("register",[ApiAuthController::class,'register']);

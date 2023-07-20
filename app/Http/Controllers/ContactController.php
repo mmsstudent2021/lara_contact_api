@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+
+    // response properties
+    // success [ true, false ]
+    // message
+    // errors
+    // data
+
     /**
      * Display a listing of the resource.
      */
@@ -44,6 +51,14 @@ class ContactController extends Controller
     public function show(string $id)
     {
         $contact = Contact::find($id);
+        if(is_null($contact)){
+            return response()->json([
+                // "success" => false,
+                "message" => "Contact not found",
+
+            ],404);
+        }
+
         // return response()->json([
         //     "data" => $contact
         // ]);
@@ -56,18 +71,43 @@ class ContactController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            "name" => "required",
-            "country_code" => "required|min:1|max:265",
-            "phone_number" => "required"
+            "name" => "nullable|min:3|max:20",
+            "country_code" => "nullable|integer|min:1|max:265",
+            "phone_number" => "nullable|min:7|max:15"
         ]);
 
         $contact = Contact::find($id);
+        if(is_null($contact)){
+            return response()->json([
+                // "success" => false,
+                "message" => "Contact not found",
 
-        $contact->update([
-            "name" => $request->name,
-            "country_code" => $request->country_code,
-            "phone_number" => $request->phone_number
-        ]);
+            ],404);
+        }
+
+        // $contact->update([
+        //     "name" => $request->name,
+        //     "country_code" => $request->country_code,
+        //     "phone_number" => $request->phone_number
+        // ]);
+
+        // $contact->update($request->all());
+
+        if($request->has('name')){
+            $contact->name = $request->name;
+        }
+
+        if($request->has('country_code')){
+            $contact->country_code = $request->country_code;
+        }
+
+        if($request->has('phone_number')){
+            $contact->phone_number = $request->phone_number;
+        }
+
+        $contact->update();
+
+
 
         return new ContactDetailResource($contact);
     }

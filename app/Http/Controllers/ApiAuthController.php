@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ApiAuthController extends Controller
@@ -27,7 +28,19 @@ class ApiAuthController extends Controller
 
     }
 
-    public function login(){
+    public function login(Request $request){
+        $request->validate([
+            "email" => "required|email",
+            "password" => "required|min:8"
+        ]);
+
+        if(!Auth::attempt($request->only('email','password'))){
+            return response()->json([
+                "message" => "Username or password wrong",
+            ]);
+        }
+
+        return Auth::user()->createToken("iphone");
 
     }
 

@@ -6,6 +6,7 @@ use App\Http\Resources\ContactDetailResource;
 use App\Http\Resources\ContactResource;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -39,7 +40,8 @@ class ContactController extends Controller
         $contact = Contact::create([
             "name" => $request->name,
             "country_code" => $request->country_code,
-            "phone_number" => $request->phone_number
+            "phone_number" => $request->phone_number,
+            "user_id" => Auth::id()
         ]);
 
         return new ContactDetailResource($contact);

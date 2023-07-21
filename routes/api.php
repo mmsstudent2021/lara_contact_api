@@ -22,8 +22,19 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::apiResource('contact',ContactController::class)->middleware('auth:sanctum');
+Route::prefix("v1")->group(function () {
 
-Route::post("register",[ApiAuthController::class,'register']);
-Route::post("login",[ApiAuthController::class,'login']);
-// Route::post("register",[ApiAuthController::class,'register']);
+    Route::middleware('auth:sanctum')->group(function () {
+
+        Route::apiResource('contact', ContactController::class);
+
+        Route::post("logout", [ApiAuthController::class, 'logout']);
+        Route::post("logout-all", [ApiAuthController::class, 'logoutAll']);
+        Route::get("devices", [ApiAuthController::class, 'devices']);
+        
+    });
+
+
+    Route::post("register", [ApiAuthController::class, 'register']);
+    Route::post("login", [ApiAuthController::class, 'login']);
+});

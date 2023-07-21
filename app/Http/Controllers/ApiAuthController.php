@@ -40,11 +40,27 @@ class ApiAuthController extends Controller
             ]);
         }
 
-        return Auth::user()->createToken("iphone");
+        return Auth::user()->createToken($request->has("device") ? $request->device : 'unknown');
 
     }
 
     public function logout(){
+        Auth::user()->currentAccessToken()->delete();
+        return response()->json([
+            "message" => "logout successful"
+        ]);
+    }
 
+    public function logoutAll(){
+        foreach (Auth::user()->tokens as $token) {
+            $token->delete();
+        }
+        return response()->json([
+            "message" => "logout all devices successful"
+        ]);
+    }
+
+    public function devices(){
+        return Auth::user()->tokens;
     }
 }

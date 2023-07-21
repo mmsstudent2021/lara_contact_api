@@ -4,7 +4,7 @@
 		"name": "App",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22886890",
-		"_collection_link": "https://dark-resonance-297681.postman.co/workspace/4243a99c-0ea5-48aa-b3c1-80eedb821e6a/collection/22886890-5d5c8e57-ad09-4b47-ba18-7e9942949e66?action=share&creator=22886890&source=collection_link"
+		"_collection_link": "https://dark-resonance-297681.postman.co/workspace/New-Team-Workspace~4243a99c-0ea5-48aa-b3c1-80eedb821e6a/collection/22886890-5d5c8e57-ad09-4b47-ba18-7e9942949e66?action=share&creator=22886890&source=collection_link"
 	},
 	"item": [
 		{
@@ -50,13 +50,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/contact/1",
+							"raw": "{{base_url}}/contact/2",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"contact",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -213,7 +213,94 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "DRLXAVG4hOfVSCngGiBZlF1xaU8gDXQ26aGAXJwt",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "devices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/devices",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"devices"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout-all",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/logout-all",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logout-all"
+							]
+						},
+						"description": "devic"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
 						"type": "string"
 					}
 				]
@@ -255,12 +342,12 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "zaw zaw",
+							"value": "kyaw kyaw",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "zz@gmail.com",
+							"value": "kk@gmail.com",
 							"type": "text"
 						},
 						{
@@ -303,7 +390,7 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "zz@gmail.com",
+							"value": "kk@gmail.com",
 							"type": "text"
 						},
 						{
